@@ -1,20 +1,38 @@
 body {
-    display flex;
-    justify-content center;
-    align-items center;
-    height 100vh;
-    background-color #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('images/background.jpg'); /* Установите фон */
+    background-size: cover;
 }
 
 .game-container {
-    text-align center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон для контейнера */
+    border-radius: 10px;
+    padding: 20px;
 }
 
 #character {
-    margin-top 20px;
+    margin-top: 20px;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.thumbnail {
+    width: 100px; /* Ширина миниатюры */
+    height: auto; /* Автоматическая высота */
+    margin: 0 10px; /* Отступ между миниатюрами */
+    cursor: pointer; /* Указатель на миниатюре */
 }
 
 #actions button {
-    margin 10px;
-    padding 10px;
+    margin: 10px;
+    padding: 10px;
 }
