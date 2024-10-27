@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Пожертвование</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        button { padding: 15px 30px; font-size: 18px; }
-    </style>
-    <script>
-        function donate() {
-            if (window.Telegram && window.Telegram.WebApp) {
-                console.log("Отправка команды 'donate' боту...");
-                window.Telegram.WebApp.sendData("donate");  // Отправляем данные в бота
-            } else {
-                alert("Откройте эту страницу через Telegram WebApp");
-            }
-        }
-    </script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>Сделать пожертвование</h1>
-    <button onclick="donate()">Пожертвовать</button>
+    <h2>Пожертвовать на проект</h2>
+    <button id="donateBtn">Пожертвовать 10 XTR</button>
+
+    <script>
+        // Инициализация WebApp
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+
+        document.getElementById('donateBtn').addEventListener('click', () => {
+            // Отправляем данные в бота
+            tg.sendData(JSON.stringify({ action: 'donate', amount: 10 }));
+        });
+    </script>
 </body>
 </html>
