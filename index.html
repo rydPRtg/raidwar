@@ -11,14 +11,18 @@
     <button id="donateBtn">Пожертвовать 10 XTR</button>
 
     <script>
-        // Инициализация WebApp
-        const tg = window.Telegram.WebApp;
-        tg.expand();
+        // Проверка поддержки Telegram WebApp API
+        if (window.Telegram && window.Telegram.WebApp) {
+            const tg = window.Telegram.WebApp;
+            tg.expand();
 
-        document.getElementById('donateBtn').addEventListener('click', () => {
-            // Отправляем данные в бота
-            tg.sendData(JSON.stringify({ action: 'donate', amount: 10 }));
-        });
+            document.getElementById('donateBtn').addEventListener('click', () => {
+                // Отправка данных в бота через WebApp
+                tg.sendData(JSON.stringify({ action: 'donate', amount: 10 }));
+            });
+        } else {
+            console.error("Telegram WebApp API не поддерживается.");
+        }
     </script>
 </body>
 </html>
