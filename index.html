@@ -10,8 +10,10 @@
     </style>
     <script>
         function donate() {
-            if (window.Telegram.WebApp) {
+            if (window.Telegram && window.Telegram.WebApp) {
+                console.log("Отправка данных из WebApp в бота...");
                 window.Telegram.WebApp.sendData("donate");  // Отправляем данные в бота
+                alert("Данные отправлены боту!");
             } else {
                 alert("Откройте эту страницу через Telegram WebApp");
             }
