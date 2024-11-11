@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donation WebApp</title>
+  <title>Telegram Bot Integration</title>
 </head>
 <body>
-  <h1>Поддержите наш проект!</h1>
-  <button onclick="sendTelegramData()">Отправить данные в Telegram</button>
-
-  <script>
-    function sendTelegramData() {
-      const data = { donation: true, amount: 100 };
-      Telegram.WebApp.sendData(JSON.stringify(data));
-    }
-  </script>
+  <h1>Telegram Bot Integration</h1>
+  <form action="/send_message" method="POST">
+    <input type="hidden" name="chat_id" value="your_chat_id">  <!-- Replace with your Telegram chat ID -->
+    <button type="submit" name="message" value="Start Payment">Start Payment</button> 
+  </form>
 </body>
 </html>
